@@ -1,4 +1,4 @@
-module Communication
+module Communication # Composition
 
   def hello
     puts 'Hello World'
@@ -11,7 +11,7 @@ module Communication
 end
 
 
-class Person
+class Person # Inheritance
 
   # include Communication
   attr_reader :name 
@@ -34,7 +34,7 @@ class Person
 
 end
 
-class Baby < Person
+class Baby < Person # Inheritance
   attr_reader :something
 
   def initialize(name)
@@ -49,14 +49,16 @@ class Baby < Person
 
 end
 
-sam = Person.new('sam')
-sam.hello
-sam.bye
-p sam
-p sam.make_baby
-puts "*" * 99
-baby = Baby.new('baby')
-baby.hello
-baby.bye
-p baby
-puts baby
+puts "Examples of composition:" # The driver code below is composition
+sam = Person.new('sam') 
+sam.hello # "Hello World"
+sam.bye # "Bye bye"
+p sam # puts human object sam
+p sam.make_baby # puts baby sam object
+puts "*" * 99 # separator
+puts "Examples of inheritance:"# The work below is inheritance
+baby = Baby.new('baby') 
+baby.hello # puts "Hello World"
+baby.bye # "wa wa wahhhhhh"
+p baby # puts "Bye bye"
+puts baby # puts baby object
